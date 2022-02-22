@@ -1,0 +1,85 @@
+using System;
+
+// Made and run in https://www.onlinegdb.com/online_csharp_compiler
+namespace Calculator
+{
+  class Program
+    {
+    static void Main(string[] args)
+        {
+        float num1 = 0;
+        float num2 = 0;
+        string op = "";
+        float result = 0;
+        bool run = true;
+        string input = "";
+        while (run == true)
+            {
+            Console.WriteLine("Enter your first number: (E to exit)");
+            input = Console.ReadLine();
+            if(input == "E" || input == "e")
+                {
+                Console.WriteLine("Thank you for using this Calculator.");
+                break;
+                }
+            while (!float.TryParse(input, out num1))
+                {
+                Console.WriteLine("Invalid entry. Enter your first number: (E to exit)");
+                input = Console.ReadLine();
+                }
+            
+            Console.WriteLine("Enter your second number: (E to exit)");
+            input = Console.ReadLine();
+            if(input == "E" || input == "e")
+                {
+                Console.WriteLine("Thank you for using this Calculator.");
+                break;
+                }
+            while (!float.TryParse(input, out num2))
+                {
+                Console.WriteLine("Invalid entry. Enter your second number: (E to exit)");
+                input = Console.ReadLine();
+                }
+            Console.WriteLine("Operator: (A/S/M/D) (E to exit)");
+            bool opVal = false;
+            while (opVal == false)
+                {
+                op = Console.ReadLine();
+                if(op == "A" || op == "a")
+                    {
+                    result = (num1 + num2);
+                    Console.WriteLine(result);
+                    opVal = true;
+                    }
+                else if(op == "S" || op == "s")
+                    {
+                    result = (num1 - num2);
+                    Console.WriteLine(result);
+                    opVal = true;
+                    }
+                else if(op == "M" || op == "m")
+                    {
+                    result = (num1 * num2);
+                    Console.WriteLine(result);
+                    opVal = true;
+                    }
+                else if(op == "D" || op == "d")
+                    {
+                    result = (num1 / num2);
+                    Console.WriteLine(result);
+                    opVal = true;
+                    }
+                else if(op == "E" || op == "e")
+                    {
+                    Console.WriteLine("Thank you for using this Calculator.");
+                    break;
+                    }
+                else
+                    {
+                    Console.WriteLine("Invalid entry. Operator: (A/S/M/D) (E to exit)");
+                    }
+                }
+            }
+        }
+    }
+}
